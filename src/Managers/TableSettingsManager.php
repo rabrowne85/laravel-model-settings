@@ -3,7 +3,6 @@
 namespace Glorand\Model\Settings\Managers;
 
 use Glorand\Model\Settings\Contracts\SettingsManagerContract;
-use Glorand\Model\Settings\Models\ModelSettings;
 
 /**
  * Class TableSettingsManager
@@ -26,7 +25,7 @@ class TableSettingsManager extends AbstractSettingsManager
             }
         } else {
             if (!$modelSettings) {
-                $modelSettings = new ModelSettings();
+                $modelSettings = new confg('model_settings.settings_class_name');
                 $modelSettings->setConnection($this->model->getConnectionName());
                 $modelSettings->model()->associate($this->model);
             }
