@@ -56,7 +56,7 @@ trait HasSettingsTable
      */
     public function modelSettings(): MorphOne
     {
-        return $this->morphOne(ModelSettings::class, 'model');
+        return $this->morphOne(confg('model_settings.settings_class_name'), 'model');
     }
 
     public function getSettingsCacheKey(): string
